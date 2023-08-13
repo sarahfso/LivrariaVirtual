@@ -18,7 +18,7 @@ public class Eletronico extends Livro{
 
     @Override
     public String toString() {
-        return "Eletronico [tamanho=" + tamanho + "]";
+        return "Eletronico [tamanho=" + tamanho + "Kb" +"]";
     }
     
 }

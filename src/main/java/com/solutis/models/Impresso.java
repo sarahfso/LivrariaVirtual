@@ -27,12 +27,12 @@ public class Impresso extends Livro{
     }
 
     public void atualizarEstoque() {
-
+        estoque--;
     }
 
     @Override
     public String toString() {
-        return "Impresso [frete=" + frete + ", estoque=" + estoque + "]";
+        return " | Frete: " + frete + " | Estoque: " + estoque;
     }
 
 }

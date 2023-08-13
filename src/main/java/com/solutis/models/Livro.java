@@ -1,6 +1,6 @@
 package com.solutis.models;
 
-public class Livro {
+public abstract class Livro {
     private String titulo;
     private String autores;
     private String editora;
@@ -45,10 +45,6 @@ public class Livro {
         this.preco = preco;
     }
 
-    @Override
-    public String toString() {
-        return "Livro [titulo=" + titulo + ", autores=" + autores + ", editora=" + editora + ", preco=" + preco + "]";
-    }
+    public abstract String toString();
 
-    
 }
