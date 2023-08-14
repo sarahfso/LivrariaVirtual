@@ -1,6 +1,13 @@
 package com.solutis.models;
+import jakarta.persistence.*;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Livro {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String titulo;
     private String autores;
     private String editora;
@@ -11,6 +18,9 @@ public abstract class Livro {
         this.autores = autores;
         this.editora = editora;
         this.preco = preco;
+    }
+    public Livro() {
+        
     }
 
     public String getTitulo() {
@@ -45,6 +55,22 @@ public abstract class Livro {
         this.preco = preco;
     }
 
+    @Override
     public abstract String toString();
+
+
+    /**
+     * @return Long return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
 }

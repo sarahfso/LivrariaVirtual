@@ -1,6 +1,14 @@
 package com.solutis.models;
 
+import jakarta.persistence.*;
+
+
+@Entity
 public class Venda {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @ManyToMany
     private Livro[] livros;
     private static int numVendas = 0;
     private int numero;
@@ -11,9 +19,12 @@ public class Venda {
         this.cliente = cliente;
         numVendas++;
         numero = numVendas;
-        livros = new Livro[maxLivros]; // Inicialização do array livros
+        livros = new Livro[maxLivros]; 
     }
 
+    public Venda() {
+        
+    }
     public Livro[] getLivros() {
         return livros;
     }
@@ -53,13 +64,13 @@ public class Venda {
         } else {
             System.out.println("Índice inválido. O livro não pôde ser adicionado.");
         }
-
     }
 
-    public void listarLivros() {
+    public void listarLivros(EntityManager em) {
         System.out.println("Livros da Venda:");
         for (Livro livro : livros) {
             if (livro != null) {
+                System.out.println("ID: " + livro.getId()); // Mostra o ID do livro
                 System.out.println("Título: " + livro.getTitulo());
                 System.out.println("Autores: " + livro.getAutores());
                 System.out.println("Editora: " + livro.getEditora());

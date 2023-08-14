@@ -1,5 +1,7 @@
 package com.solutis.models;
 
+import jakarta.persistence.*;
+@Entity
 public class Impresso extends Livro{
     private float frete;
     private int estoque;
@@ -8,6 +10,9 @@ public class Impresso extends Livro{
         super(titulo, autores, editora, preco);
         this.frete = frete;
         this.estoque = estoque;
+    }
+    
+    public Impresso() {
     }
 
     public float getFrete() {
@@ -32,7 +37,7 @@ public class Impresso extends Livro{
 
     @Override
 public String toString() {
-    return String.format("| Título: %-20s | Autor: %-20s | Editora: %-20s | Preço: %-10.2f | Frete: %-10.2f | Estoque: %-5d |", getTitulo(), getAutores(), getEditora(), getPreco(), frete, estoque);
+    return String.format("| Título: %-25s | Autor: %-15s | Editora: %-15s | Preço: %-5.2f | Frete: %-5.2f | Estoque: %-5d |", getTitulo(), getAutores(), getEditora(), getPreco(), frete, estoque);
 }
 
     
