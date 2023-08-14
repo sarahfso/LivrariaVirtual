@@ -10,10 +10,6 @@ Este é um projeto da Livraria Virtual. Ele está dividido em duas branches prin
 Para visualizar a versão sem banco de dados, acesse a branch **master**:
 
 ```bash
-git checkout master```
+git checkout master
 
-Para visualizar a versão com banco de dados, acesse a branch comBD:
-    
-```bash
-git checkout comBD```
-    ```
+git checkout comBD
