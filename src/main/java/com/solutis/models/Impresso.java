@@ -37,7 +37,7 @@ public class Impresso extends Livro{
 
     @Override
 public String toString() {
-    return String.format("| Título: %-25s | Autor: %-15s | Editora: %-15s | Preço: %-5.2f | Frete: %-5.2f | Estoque: %-5d |", getTitulo(), getAutores(), getEditora(), getPreco(), frete, estoque);
+    return String.format("| Título: %-25s | Autor: %-15s | Editora: %-15s | Preço: R$%-5.2f | Frete: R$%-5.2f | Estoque: %-5d |", getTitulo(), getAutores(), getEditora(), getPreco(), frete, estoque);
 }
 
     

@@ -166,7 +166,7 @@ public class LivrariaVirtual {
             entityManager.getTransaction().commit();
             vendas[numVendas] = venda;
             numVendas++;
-            System.out.println("\nVenda realizada com sucesso.\n");
+            System.out.printf("\nVenda realizada com sucesso. O valor total da venda é R$%.2f %n \n", venda.getValor());
         } catch (InputMismatchException e) {
             System.out.println("Entrada inválida. Certifique-se de inserir um valor numérico quando necessário.");
         }
@@ -234,15 +234,7 @@ public class LivrariaVirtual {
                 System.out.println("\nNúmero da venda: " + venda.getNumero());
                 System.out.println("Cliente: " + venda.getCliente());
 
-                float valorTotalVenda = 0.00f;
-
-                for (Livro livro : venda.getLivros()) {
-                    if (livro != null) {
-                        valorTotalVenda += livro.getPreco();
-                    }
-                }
-
-                System.out.println("Valor total: " + valorTotalVenda);
+                System.out.printf("Valor total: R$%.2f %n \n", venda.getValor());
 
                 venda.listarLivros(em);
                 System.out.println("-----------------------");
@@ -268,10 +260,10 @@ public class LivrariaVirtual {
         System.out.println("Editora: ");
         String editora = scanner.nextLine();
 
-        System.out.println("Preço: ");
+        System.out.println("Preço: R$");
         float preco = readFloatInput();
 
-        System.out.println("Frete: ");
+        System.out.println("Frete: R$");
         float frete = readFloatInput();
 
         try {
@@ -312,7 +304,7 @@ public class LivrariaVirtual {
         System.out.println("Editora: ");
         String editora = scanner.nextLine();
 
-        System.out.println("Preço: ");
+        System.out.println("Preço: R$");
         float preco = readFloatInput();
 
         try {
