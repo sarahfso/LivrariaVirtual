@@ -7,10 +7,11 @@ public class Venda {
     private String cliente;
     private float valor;
 
-    public Venda(String cliente) {
+    public Venda(String cliente, int maxLivros) {
         this.cliente = cliente;
         numVendas++;
         numero = numVendas;
+        livros = new Livro[maxLivros]; // Inicialização do array livros
     }
 
     public Livro[] getLivros() {
@@ -56,15 +57,22 @@ public class Venda {
     }
 
     public void listarLivros() {
+        System.out.println("Livros da Venda:");
         for (Livro livro : livros) {
             if (livro != null) {
                 System.out.println("Título: " + livro.getTitulo());
                 System.out.println("Autores: " + livro.getAutores());
                 System.out.println("Editora: " + livro.getEditora());
                 System.out.println("Preço: " + livro.getPreco());
+                if (livro instanceof Impresso) {
+                    Impresso impresso = (Impresso) livro;
+                    System.out.println("Frete: " + impresso.getFrete());
+                } else if (livro instanceof Eletronico) {
+                    Eletronico eletronico = (Eletronico) livro;
+                    System.out.println("Tamanho: " + eletronico.getTamanho() + "KB");
+                }
                 System.out.println("-----------------------");
             }
         }
-
     }
 }

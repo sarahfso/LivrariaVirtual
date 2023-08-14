@@ -31,8 +31,10 @@ public class Impresso extends Livro{
     }
 
     @Override
-    public String toString() {
-        return " | Frete: " + frete + " | Estoque: " + estoque;
-    }
+public String toString() {
+    return String.format("| Título: %-20s | Autor: %-20s | Editora: %-20s | Preço: %-10.2f | Frete: %-10.2f | Estoque: %-5d |", getTitulo(), getAutores(), getEditora(), getPreco(), frete, estoque);
+}
+
+    
 
 }
