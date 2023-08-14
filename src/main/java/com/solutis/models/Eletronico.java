@@ -18,7 +18,7 @@ public class Eletronico extends Livro {
 
     @Override
     public String toString() {
-        return String.format("| Título: %-20s | Autor: %-20s | Editora: %-20s | Preço: %-10.2f | Tamanho: %-10d |",
+        return String.format("| Título: %-20s | Autor: %-20s | Editora: %-20s | Preço: R$%-10.2f | Tamanho: %-10d |",
                 getTitulo(), getAutores(), getEditora(), getPreco(), tamanho);
     }
 

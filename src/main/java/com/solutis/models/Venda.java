@@ -12,6 +12,7 @@ public class Venda {
         numVendas++;
         numero = numVendas;
         livros = new Livro[maxLivros]; // Inicialização do array livros
+        valor = 0.0f;
     }
 
     public Livro[] getLivros() {
@@ -50,6 +51,11 @@ public class Venda {
 
         if (index >= 0 && index < livros.length) {
             livros[index] = livro;
+            valor += livro.getPreco();
+            if(livro instanceof Impresso) {
+                Impresso impresso = (Impresso) livro;
+                valor += impresso.getFrete();
+            }
         } else {
             System.out.println("Índice inválido. O livro não pôde ser adicionado.");
         }
@@ -63,10 +69,10 @@ public class Venda {
                 System.out.println("Título: " + livro.getTitulo());
                 System.out.println("Autores: " + livro.getAutores());
                 System.out.println("Editora: " + livro.getEditora());
-                System.out.println("Preço: " + livro.getPreco());
+                System.out.println("Preço: R$" + livro.getPreco());
                 if (livro instanceof Impresso) {
                     Impresso impresso = (Impresso) livro;
-                    System.out.println("Frete: " + impresso.getFrete());
+                    System.out.println("Frete: R$" + impresso.getFrete());
                 } else if (livro instanceof Eletronico) {
                     Eletronico eletronico = (Eletronico) livro;
                     System.out.println("Tamanho: " + eletronico.getTamanho() + "KB");
