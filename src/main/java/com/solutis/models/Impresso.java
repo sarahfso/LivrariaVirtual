@@ -27,12 +27,14 @@ public class Impresso extends Livro{
     }
 
     public void atualizarEstoque() {
-
+        estoque--;
     }
 
     @Override
-    public String toString() {
-        return "Impresso [frete=" + frete + ", estoque=" + estoque + "]";
-    }
+public String toString() {
+    return String.format("| Título: %-20s | Autor: %-20s | Editora: %-20s | Preço: %-10.2f | Frete: %-10.2f | Estoque: %-5d |", getTitulo(), getAutores(), getEditora(), getPreco(), frete, estoque);
+}
+
+    
 
 }

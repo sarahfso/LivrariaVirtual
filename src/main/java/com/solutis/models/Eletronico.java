@@ -1,6 +1,6 @@
 package com.solutis.models;
 
-public class Eletronico extends Livro{
+public class Eletronico extends Livro {
     private int tamanho;
 
     public Eletronico(String titulo, String autores, String editora, float preco, int tamanho) {
@@ -18,7 +18,8 @@ public class Eletronico extends Livro{
 
     @Override
     public String toString() {
-        return "Eletronico [tamanho=" + tamanho + "]";
+        return String.format("| Título: %-20s | Autor: %-20s | Editora: %-20s | Preço: %-10.2f | Tamanho: %-10d |",
+                getTitulo(), getAutores(), getEditora(), getPreco(), tamanho);
     }
-    
+
 }
