@@ -82,8 +82,6 @@ public class LivrariaVirtual {
 
     public void realizarVenda() {
         try {
-            System.out.flush();
-    
             System.out.println("\nNome do cliente: ");
             String nomeCliente = scanner.nextLine();
     
@@ -138,18 +136,14 @@ public class LivrariaVirtual {
                         i--;
                         continue;
                     }
-        
-                    boolean livroJaAdicionado = false;
-                    for (Livro livro : venda.getLivros()) {
-                        if (livro != null && livro.getId().equals(idLivro)) {
-                            System.out.println("Esse livro já foi adicionado à venda.");
-                            livroJaAdicionado = true;
-                            break;
-                        }
-                    }
-        
-                    if (livroJaAdicionado) {
-                        continue; // Pular para a próxima iteração do loop
+
+                    if (livroEscolhido instanceof Impresso) {
+                        Impresso impresso = (Impresso) livroEscolhido;
+                        if(impresso.getEstoque() == 0) {
+                            System.out.println("Livro não disponível.");
+                            i--;
+                            continue;
+                        }  
                     }
         
                     venda.addLivro(livroEscolhido, i);
@@ -270,6 +264,8 @@ public class LivrariaVirtual {
             System.out.println("Estoque: ");
             int estoque = scanner.nextInt();
 
+            scanner.nextLine();
+
             if (estoque <= 0) {
                 throw new LivroInvalidoException("Estoque inválido. O estoque deve ser maior que zero.");
             }
@@ -293,7 +289,6 @@ public class LivrariaVirtual {
     }
 
     private Eletronico criarLivroEletronico() {
-        scanner.nextLine();
         System.out.println("Cadastro de Livro Eletrônico:");
         System.out.println("Título: ");
         String titulo = scanner.nextLine();
@@ -311,6 +306,8 @@ public class LivrariaVirtual {
             System.out.println("Tamanho (KB): ");
             int tamanho = scanner.nextInt();
 
+            scanner.nextLine();
+            
             if (tamanho <= 0) {
                 throw new LivroInvalidoException("Tamanho inválido. O tamanho deve ser maior que zero.");
             }
