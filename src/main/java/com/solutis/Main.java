@@ -13,18 +13,16 @@ public class Main {
         int opcao;
         
         do {
-            System.out.println("\n=== Menu de Opções ===");
+            System.out.println("\n=== Menu de Opções ===\n");
             System.out.println("1. Cadastrar livro");
             System.out.println("2. Realizar venda");
             System.out.println("3. Listar livros");
             System.out.println("4. Listar vendas");
             System.out.println("5. Sair do programa");
             System.out.println("\n======================");
-            System.out.print("\nEscolha uma opção: ");
+            System.out.println("\nEscolha uma opção: ");
           
-            opcao = scanner.nextInt();
-            scanner.nextLine(); // Consumir a quebra de linha pendente
-
+            opcao = Integer.parseInt(scanner.nextLine());
             
             switch (opcao) {
                 

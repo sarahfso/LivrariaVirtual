@@ -81,7 +81,6 @@ public class LivrariaVirtual {
             System.out.println("Quantidade de livros que deseja comprar: ");
             int quantidade = scanner.nextInt();
 
-
             if (numVendas >= MAX_VENDAS) {
                 System.out.println("Número máximo de vendas atingido. Não é possível realizar mais vendas.");
                 return;
@@ -196,6 +195,8 @@ public class LivrariaVirtual {
         try {
             System.out.println("Estoque: ");
             int estoque = scanner.nextInt();
+            
+            scanner.nextLine(); // Consumir quebra de linha pendente
 
             if (estoque <= 0) {
                 throw new LivroInvalidoException("Estoque inválido. O estoque deve ser maior que zero.");
@@ -230,6 +231,8 @@ public class LivrariaVirtual {
         try {
             System.out.println("Tamanho (KB): ");
             int tamanho = scanner.nextInt();
+
+            scanner.nextLine(); // Consumir quebra de linha pendente
 
             if (tamanho <= 0) {
                 throw new LivroInvalidoException("Tamanho inválido. O tamanho deve ser maior que zero.");
